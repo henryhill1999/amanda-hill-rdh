@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="74"
+   height="74"
+   viewBox="-3 -4 60 52"
+   fill="none"
+   version="1.1"
+   id="svg911"
+   sodipodi:docname="linkedin.svg"
+   inkscape:export-filename="/Users/henryhill/Desktop/linkedin.png"
+   inkscape:export-xdpi="209.24194"
+   inkscape:export-ydpi="209.24194"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata917">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs915">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4714">
+      <rect
+         x="1.9279826"
+         y="1.9653891"
+         width="44.615894"
+         height="43.265499"
+         rx="11.5"
+         id="rect4716"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#444b54;stroke-width:2.99999976" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1272"
+     inkscape:window-height="735"
+     id="namedview913"
+     showgrid="false"
+     inkscape:zoom="4.5197501"
+     inkscape:cx="16.368757"
+     inkscape:cy="21.481019"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg911" />
+  <rect
+     x="1.9279842"
+     y="1.9653883"
+     width="44.615894"
+     height="43.265499"
+     rx="11.5"
+     id="rect894-7"
+     style="display:inline;fill:#ffffff;stroke:#444b54;stroke-width:2.99999976;fill-opacity:1"
+     inkscape:export-filename="/Users/henryhill/Desktop/rect894-7.png"
+     inkscape:export-xdpi="209.24194"
+     inkscape:export-ydpi="209.24194" />
+  <rect
+     x="5.3636198"
+     y="7.1653399"
+     width="46.454899"
+     height="44.947498"
+     rx="10"
+     id="rect899"
+     style="display:inline;opacity:1;fill:#1c8eb5;fill-opacity:1"
+     clip-path="url(#clipPath4714)" />
+  <rect
+     x="1.9279799"
+     y="1.96539"
+     width="44.615898"
+     height="43.265499"
+     rx="11.5"
+     id="rect894"
+     style="display:inline;fill:none;stroke:#444b54;stroke-width:3" />
+  <mask
+     id="mask0"
+     mask-type="alpha"
+     maskUnits="userSpaceOnUse"
+     x="3"
+     y="3"
+     width="43"
+     height="41">
+    <rect
+       x="3.42798"
+       y="3.46539"
+       width="41.6159"
+       height="40.2655"
+       rx="10"
+       fill="#008DB9"
+       id="rect896" />
+  </mask>
+  <g
+     mask="url(#mask0)"
+     id="g901"
+     style="display:inline;opacity:1;fill:#1c8eb5;fill-opacity:1" />
+  <rect
+     x="12.6207"
+     y="18.871099"
+     width="5.42974"
+     height="18.3874"
+     rx="2.71487"
+     id="rect903"
+     style="display:inline;fill:#ffffff" />
+  <rect
+     x="22.122601"
+     y="18.871099"
+     width="5.42974"
+     height="18.3874"
+     rx="2.71487"
+     id="rect905"
+     style="display:inline;fill:#ffffff" />
+  <rect
+     x="12.6207"
+     y="12.3041"
+     width="5.42974"
+     height="5.2535501"
+     rx="2.62678"
+     id="rect907"
+     style="display:inline;fill:#ffffff" />
+  <path
+     d="m 39.8716,24.7813 c 0,-7.0346 -14.2576,-6.596 -15.0037,-0.5033 -0.0404,0.33 0.0235,0.6622 0.1406,0.9734 0.49,1.3026 1.8651,4.6211 1.8652,0.8434 2e-4,-4.5969 8.8241,-5.6476 8.8241,0.6567 0,3.6532 -0.0198,6.3006 -0.0365,7.9663 -0.0115,1.1525 0.9118,2.0846 2.0644,2.0846 1.1525,0 2.095,-0.9334 2.1084,-2.0859 0.0169,-1.4483 0.0375,-4.0386 0.0375,-9.9352 z"
+     id="path909"
+     inkscape:connector-curvature="0"
+     style="display:inline;fill:#ffffff;stroke:#ffffff" />
+</svg>
