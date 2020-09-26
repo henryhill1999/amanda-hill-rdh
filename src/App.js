@@ -8,7 +8,7 @@ import Grid from "./Grid";
 
 import Profile from "./Profile";
 import Social from "./Social";
-import Gallery from "./Gallery";
+// import Gallery from "./Gallery";
 import Attribution from "./Attribution";
 import { DateEntries, DateEntry } from "./DateEntries";
 import parseContent from "./parseContent";
@@ -71,7 +71,7 @@ const App = () => {
   // "./content(1).csv";
   const proxyUrl = `https://cors-anywhere.herokuapp.com/${contentURL}`;
 
-  const [{ data, loading, error }, refetch] = useAxios(proxyUrl, {
+  const [{ data }] = useAxios(proxyUrl, {
     useCache: false,
   });
 
@@ -109,6 +109,7 @@ const App = () => {
         <Square color="#FFC5A1" gridName="gallery">
           {/* <Gallery></Gallery> */}
           <iframe
+            title="interview on youtube"
             width="100%"
             height="100%"
             src="https://www.youtube.com/embed/PaJGUio1Ihw"
