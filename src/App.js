@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 import useAxios from "axios-hooks";
 
@@ -12,6 +12,7 @@ import Social from "./Social";
 import Attribution from "./Attribution";
 import { DateEntries, DateEntry } from "./DateEntries";
 import parseContent from "./parseContent";
+import ExpandedList from "./ExpandedList";
 
 const useStyles = createUseStyles({
   "@global": {
@@ -44,6 +45,21 @@ const useStyles = createUseStyles({
       backgroundColor: "#F5EAD8",
     },
   },
+  seeAll: {
+    margin: "1%",
+    textDecoration: "underline",
+    whiteSpace: "noWrap",
+
+    position: "absolute",
+    bottom: "0",
+    right: "10px",
+
+    "&:hover": {
+      fontWeight: "bold",
+      fontSize: "1.1em",
+      cursor: "pointer",
+    },
+  },
   body: {
     position: "absolute",
     top: 0,
@@ -74,11 +90,31 @@ const App = () => {
   const [{ data }] = useAxios(proxyUrl, {
     useCache: false,
   });
+  const [expandedContent, setExpandedContent] = useState([]);
+  const [expandedTitle, setExpandedTitle] = useState("");
+
+  useEffect(() => {
+    window.addEventListener("keydown", () => setExpanded("", []));
+    // Remove event listeners on cleanup
+    return () => {
+      window.removeEventListener("keydown", () => setExpanded("", []));
+    };
+  }, []);
+
+  const setExpanded = (title, content) => {
+    setExpandedTitle(title);
+    setExpandedContent(content);
+  };
 
   const content = !!data ? parseContent(data) : undefined;
   console.log(content);
   return (
     <div className={classes.body}>
+      <ExpandedList
+        content={expandedContent}
+        title={expandedTitle}
+        closeExpandedList={() => setExpanded("", [])}
+      ></ExpandedList>
       <Grid>
         <Square color="#FFC5A1" gridName="profile">
           <Profile></Profile>
@@ -92,18 +128,26 @@ const App = () => {
           <TextCard loading={!content} title="My Podcast:">
             <DateEntries>
               {!!content && content.hasOwnProperty("podcasts")
-                ? content.podcasts.map((el, i) =>
-                    !!el ? (
-                      <DateEntry
-                        key={i}
-                        date={el.date}
-                        entry={el.name}
-                        link={el.link}
-                      ></DateEntry>
-                    ) : null,
-                  )
+                ? content.podcasts
+                    .slice(0, 3)
+                    .map((el, i) =>
+                      !!el ? (
+                        <DateEntry
+                          key={i}
+                          date={el.date}
+                          entry={el.name}
+                          link={el.link}
+                        ></DateEntry>
+                      ) : null,
+                    )
                 : null}
             </DateEntries>
+            <p
+              className={classes.seeAll}
+              onClick={() => setExpanded("All Podcasts", content.podcasts)}
+            >
+              See all...
+            </p>
           </TextCard>
         </Square>
         <Square color="#FFC5A1" gridName="gallery">
@@ -122,42 +166,58 @@ const App = () => {
           <TextCard loading={!content} title="Recent Blog Posts:">
             <DateEntries>
               {!!content && content.hasOwnProperty("blogs")
-                ? content.blogs.map((el, i) =>
-                    !!el ? (
-                      <DateEntry
-                        key={i}
-                        date={el.date}
-                        entry={el.name}
-                        link={el.link}
-                      ></DateEntry>
-                    ) : null,
-                  )
+                ? content.blogs
+                    .slice(0, 5)
+                    .map((el, i) =>
+                      !!el ? (
+                        <DateEntry
+                          key={i}
+                          date={el.date}
+                          entry={el.name}
+                          link={el.link}
+                        ></DateEntry>
+                      ) : null,
+                    )
                 : null}
             </DateEntries>
+            <p
+              className={classes.seeAll}
+              onClick={() => setExpanded("All Blog Posts", content.blogs)}
+            >
+              See all...
+            </p>
           </TextCard>
         </Square>
         <Square color="#F8A978" gridName="where">
           <TextCard loading={!content} title="Where's Amanda?">
             <DateEntries>
               {!!content && content.hasOwnProperty("events")
-                ? content.events.map((el, i) =>
-                    !!el ? (
-                      <DateEntry
-                        key={i}
-                        date={`${el.from
-                          .split("/")
-                          .slice(0, 2)
-                          .join("/")}-${el.to
-                          .split("/")
-                          .slice(0, 2)
-                          .join("/")}`}
-                        entry={el.name}
-                        link={el.link}
-                      ></DateEntry>
-                    ) : null,
-                  )
+                ? content.events
+                    .slice(0, 3)
+                    .map((el, i) =>
+                      !!el ? (
+                        <DateEntry
+                          key={i}
+                          date={`${el.from
+                            .split("/")
+                            .slice(0, 2)
+                            .join("/")}-${el.to
+                            .split("/")
+                            .slice(0, 2)
+                            .join("/")}`}
+                          entry={el.name}
+                          link={el.link}
+                        ></DateEntry>
+                      ) : null,
+                    )
                 : null}
             </DateEntries>
+            <p
+              className={classes.seeAll}
+              onClick={() => setExpanded("All Events", content.events)}
+            >
+              See all...
+            </p>
           </TextCard>
         </Square>
         <Square color="#FFC5A1" gridName="social">

@@ -1,4 +1,4 @@
-const parseContent = csv => {
+const parseContent = (csv) => {
   let filteredStrings = [];
   const filteredTable = csv
     .split('"')
@@ -11,7 +11,7 @@ const parseContent = csv => {
     })
     .join("");
 
-  const table = filteredTable.split("\n").map(row => {
+  const table = filteredTable.split("\n").map((row) => {
     const splitted = row.split(",");
 
     while (splitted.indexOf("STR") >= 0) {
@@ -23,8 +23,9 @@ const parseContent = csv => {
 
   let content = {
     welcome: table[1][0],
-    events: [2, 3, 4].map(i =>
-      table.length > i
+    events: [...Array(table.length).keys()].slice(2).map((i) =>
+      table[i] &&
+      [table[i][4], table[i][6], table[i][8], table[i][10]].some((x) => x)
         ? {
             from: table[i][4],
             to: table[i][6],
@@ -33,8 +34,9 @@ const parseContent = csv => {
           }
         : undefined,
     ),
-    podcasts: [2, 3, 4, 5].map(i =>
-      table.length > i
+    podcasts: [...Array(table.length).keys()].slice(2).map((i) =>
+      table[i] &&
+      [table[i][4], table[i][12], table[i][14], table[i][16]].some((x) => x)
         ? {
             date: table[i][12],
             name: table[i][14],
@@ -42,8 +44,9 @@ const parseContent = csv => {
           }
         : undefined,
     ),
-    blogs: [2, 3, 4, 5].map(i =>
-      table.length > i
+    blogs: [...Array(table.length).keys()].slice(2).map((i) =>
+      table[i] &&
+      [table[i][4], table[i][18], table[i][20], table[i][22]].some((x) => x)
         ? {
             date: table[i][18],
             name: table[i][20],
