@@ -72,14 +72,26 @@ const ExpandedList = (props) => {
             <DateEntries>
               {props.content.map((el, i) =>
                 !!el ? (
-                  <DateEntry
-                    key={i}
-                    date={el.date}
-                    entry={el.name}
-                    link={el.link}
-                    color={"#000"}
-                    hoverColor={"#111"}
-                  ></DateEntry>
+                  <div key={i}>
+                    <DateEntry
+                      date={el.date}
+                      entry={el.name}
+                      link={el.link}
+                      color={"#000"}
+                      hoverColor={"#111"}
+                    ></DateEntry>{" "}
+                    {el.preview && (
+                      <iframe
+                        title="interview on youtube"
+                        width="100%"
+                        // height="94%"
+                        src={el.link}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      ></iframe>
+                    )}
+                  </div>
                 ) : null,
               )}
             </DateEntries>

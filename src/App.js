@@ -87,11 +87,13 @@ const App = () => {
   // "./content(1).csv";
   const proxyUrl = `https://cors-anywhere.herokuapp.com/${contentURL}`;
 
-  const [{ data }] = useAxios(proxyUrl, {
-    useCache: false,
-  });
   const [expandedContent, setExpandedContent] = useState([]);
   const [expandedTitle, setExpandedTitle] = useState("");
+
+  const [{ data }] = useAxios(proxyUrl, {
+    useCache: false,
+    manual: !!expandedContent.length,
+  });
 
   useEffect(() => {
     window.addEventListener("keydown", () => setExpanded("", []));
@@ -152,15 +154,25 @@ const App = () => {
         </Square>
         <Square color="#FFC5A1" gridName="gallery">
           {/* <Gallery></Gallery> */}
-          <iframe
-            title="interview on youtube"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/PaJGUio1Ihw"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div style={{ position: "relative", height: "100%" }}>
+            {content && (
+              <iframe
+                title={content.videos[0].title}
+                width="100%"
+                height="94%"
+                src={content.videos[0].link}
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen="true"
+              ></iframe>
+            )}
+            <p
+              className={classes.seeAll}
+              onClick={() => setExpanded("All Videos", content.videos)}
+            >
+              See all...
+            </p>
+          </div>
         </Square>
         <Square color="#40BFC1" gridName="blog">
           <TextCard loading={!content} title="Recent Blog Posts:">

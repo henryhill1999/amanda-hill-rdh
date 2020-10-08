@@ -24,8 +24,7 @@ const parseContent = (csv) => {
   let content = {
     welcome: table[1][0],
     events: [...Array(table.length).keys()].slice(2).map((i) =>
-      table[i] &&
-      [table[i][4], table[i][6], table[i][8], table[i][10]].some((x) => x)
+      table[i] && (table[i][4] || table[i][6] || table[i][8])
         ? {
             from: table[i][4],
             to: table[i][6],
@@ -35,8 +34,7 @@ const parseContent = (csv) => {
         : undefined,
     ),
     podcasts: [...Array(table.length).keys()].slice(2).map((i) =>
-      table[i] &&
-      [table[i][4], table[i][12], table[i][14], table[i][16]].some((x) => x)
+      table[i] && (table[i][12] || table[i][14])
         ? {
             date: table[i][12],
             name: table[i][14],
@@ -45,12 +43,28 @@ const parseContent = (csv) => {
         : undefined,
     ),
     blogs: [...Array(table.length).keys()].slice(2).map((i) =>
-      table[i] &&
-      [table[i][4], table[i][18], table[i][20], table[i][22]].some((x) => x)
+      table[i] && (table[i][18] || table[i][20])
         ? {
             date: table[i][18],
             name: table[i][20],
             link: table[i][22],
+          }
+        : undefined,
+    ),
+    videos: [...Array(table.length).keys()].slice(2).map((i) =>
+      table[i] && [table[i][24], table[i][26]].some((x) => x)
+        ? {
+            date: table[i][24],
+            name: table[i][26],
+            link: table[i][28]
+              .substring(
+                0,
+                table[i][28].indexOf("&t=") > -1
+                  ? table[i][28].indexOf("&t=")
+                  : table[i][28].length,
+              )
+              .replace("watch?v=", "embed/"),
+            preview: table[i][30].toLowerCase().trim() !== "no",
           }
         : undefined,
     ),
