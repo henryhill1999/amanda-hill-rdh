@@ -175,7 +175,7 @@ const App = () => {
           </div>
         </Square>
         <Square color="#40BFC1" gridName="blog">
-          <TextCard loading={!content} title="Recent Blog Posts:">
+          <TextCard loading={!content} title="Recent Publications">
             <DateEntries>
               {!!content && content.hasOwnProperty("blogs")
                 ? content.blogs
