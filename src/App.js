@@ -82,15 +82,12 @@ const useStyles = createUseStyles({
 
 const App = () => {
   const classes = useStyles();
-  const contentURL =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQpSd6-sEPP_Nw-11VIRif3fAPOopfcLrnAFISAKOhzH5uAbd1FUZrU8Pz8Id8yXCOMVsxjHUlAIgUb/pub?gid=0&single=true&output=csv";
-  // "./content(1).csv";
-  const proxyUrl = `https://cors-anywhere.herokuapp.com/${contentURL}`;
+  const contentURL = "./content.csv";
 
   const [expandedContent, setExpandedContent] = useState([]);
   const [expandedTitle, setExpandedTitle] = useState("");
 
-  const [{ data }] = useAxios(proxyUrl, {
+  const [{ data }] = useAxios(contentURL, {
     useCache: false,
     manual: !!expandedContent.length,
   });
