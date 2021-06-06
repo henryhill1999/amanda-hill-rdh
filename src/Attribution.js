@@ -18,15 +18,12 @@ const useStyles = createUseStyles({
   },
 });
 
-const Attribution = props => {
+const Attribution = (props) => {
   const classes = useStyles(props);
 
   return (
     <div className={classes.attribution}>
-      <p>
-        Created by <a href="mailto: henry.jacob.hill@gmail.com">Henry Hill</a>,
-        2020
-      </p>
+      <p>Created by Madeleine Hill, 2020</p>
 
       <p>
         Icons created by{" "}
